@@ -41,7 +41,7 @@ public class JavarangController {
     public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
         System.out.println(" /jsp 타는지 ");
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("index11");
+        mv.setViewName("index");
         //mv.addObject("uniKey", uniKey);
         return mv;
     }
