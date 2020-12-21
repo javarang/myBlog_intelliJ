@@ -37,6 +37,17 @@ public class JavarangController {
     //private RevTransDBRepository  revTransDBRepository;
 
 
+    @RequestMapping("/")
+    public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println(" /jsp 타는지 ");
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/jsp/index");
+        //mv.addObject("uniKey", uniKey);
+        return mv;
+    }
+
+
+
     @ResponseBody
     @RequestMapping(value = "/firstRun", method = RequestMethod.GET)
     public String firstRun(HttpServletRequest request, HttpServletResponse response) throws Exception{

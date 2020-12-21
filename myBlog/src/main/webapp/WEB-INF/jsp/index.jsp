@@ -184,7 +184,7 @@
       <span class="pw2"></span>
       <span class="pw3"></span>
       <span class="pw4"></span>
-    </div>
+    </div>.
 
   </div>
   <!-- //키패드 상단 -->
