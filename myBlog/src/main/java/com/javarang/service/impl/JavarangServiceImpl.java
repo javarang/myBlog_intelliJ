@@ -121,6 +121,11 @@ public class JavarangServiceImpl implements JavarangService {
         return resbody.toString();
     }
 
+    @Override
+    public List getBlogList() throws Exception {
+        return DBRepository.getBlogList();
+    }
+
 
     @SuppressWarnings("unchecked")
     @Override

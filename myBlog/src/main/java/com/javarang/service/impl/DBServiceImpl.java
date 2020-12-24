@@ -18,6 +18,11 @@ public class DBServiceImpl implements DBService {
     }
 
     @Override
+    public List<Map<String, Object>> getBlogList() {
+        return DBRepository.getBlogList();
+    }
+
+    @Override
     public void insertTokken(Map<String, Object> args) {
 
         DBRepository.insertTokken(args);

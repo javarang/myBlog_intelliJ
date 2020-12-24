@@ -3,7 +3,6 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
   <mappers>
-    <mapper resource="BoardMapper.xml"/>
-    <mapper resource="RevTransDBServiceMapper.xml"/>
+    <mapper resource="DBServiceMapper.xml"/>
   </mappers>
 </configuration>

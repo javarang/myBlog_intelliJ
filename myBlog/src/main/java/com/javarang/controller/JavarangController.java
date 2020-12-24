@@ -16,7 +16,9 @@ import org.springframework.http.HttpHeaders;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Slf4j
@@ -43,6 +45,21 @@ public class JavarangController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/jsp/index");
         //mv.addObject("uniKey", uniKey);
+        return mv;
+    }
+
+    @RequestMapping("/getBoard")
+    public ModelAndView getBoard(HttpServletRequest request, HttpServletResponse response) {
+        List boardList = null;
+        try {
+             boardList = javarangService.getBlogList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        log.info(boardList.toString());
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/jsp/main");
+        mv.addObject("blogList", boardList!=null?boardList:new ArrayList());
         return mv;
     }
 

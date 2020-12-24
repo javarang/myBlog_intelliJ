@@ -9,8 +9,9 @@ import java.util.Map;
 @Mapper
 @Repository
 public interface DBRepository {
-    List<Map<String, Object>> getTradeInfoList();
     List<Map<String, Object>> getRndKeyYN(Map<String, Object> args);
+    List<Map<String, Object>> getTradeInfoList();
+    List<Map<String, Object>> getBlogList();
 
     void insertTokken(Map<String, Object> args);
 }
