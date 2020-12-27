@@ -28,4 +28,9 @@ public class DBServiceImpl implements DBService {
         DBRepository.insertTokken(args);
 
     }
+
+    @Override
+    public void writeNewContent(Map<String, Object> args) {
+        DBRepository.writeNewContent(args);
+    }
 }

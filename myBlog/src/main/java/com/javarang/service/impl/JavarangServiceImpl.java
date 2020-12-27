@@ -199,6 +199,10 @@ public class JavarangServiceImpl implements JavarangService {
         return result;
     }
 
+    @Override
+    public void writeNewContent(Map<String, Object> cont) throws Exception {
+        DBRepository.writeNewContent(cont);
+    }
 
 
     @SuppressWarnings("unchecked")

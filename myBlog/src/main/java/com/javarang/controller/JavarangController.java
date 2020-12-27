@@ -64,6 +64,57 @@ public class JavarangController {
     }
 
 
+    @RequestMapping("/goWrite")
+    public ModelAndView goWrite(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/jsp/write");
+        return mv;
+    }
+
+//    @RequestMapping("/write")
+    @PostMapping("/write")
+    public ModelAndView write(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView mv = new ModelAndView();
+
+        Map<String, Object> param = new HashMap<String, Object>();
+        param.put("subject",request.getParameter("subjectText"));
+        param.put("contents",request.getParameter("contentsText"));
+        log.info("subjectText"+request.getParameter("subjectText"));
+        log.info("contentsText"+request.getParameter("contentsText"));
+        try {
+            javarangService.writeNewContent(param);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        List boardList = null;
+        try {
+            boardList = javarangService.getBlogList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        mv.addObject("blogList", boardList!=null?boardList:new ArrayList());
+//        mv.setViewName("/jsp/main");
+        mv.setViewName("redirect:/write");
+        return mv;
+    }
+
+    @GetMapping("/write")
+    public ModelAndView postWrite(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView mv = new ModelAndView();
+
+        List boardList = null;
+        try {
+            boardList = javarangService.getBlogList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        mv.addObject("blogList", boardList!=null?boardList:new ArrayList());
+        mv.setViewName("/jsp/main");
+        return mv;
+    }
+
+
+
 
     @ResponseBody
     @RequestMapping(value = "/firstRun", method = RequestMethod.GET)
