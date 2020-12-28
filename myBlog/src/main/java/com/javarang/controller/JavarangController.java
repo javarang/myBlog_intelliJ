@@ -16,6 +16,7 @@ import org.springframework.http.HttpHeaders;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -126,6 +127,7 @@ public class JavarangController {
 
 
     @ResponseBody
+
     @RequestMapping(value = "/issueToken", method = RequestMethod.GET)
     public String issueToken(HttpServletRequest request, HttpServletResponse response) throws Exception{
         //String strJson = CommonUtil.convSTRtoNull(request.getParameter("inputParam"));

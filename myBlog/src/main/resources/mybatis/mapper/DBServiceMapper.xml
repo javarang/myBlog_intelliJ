@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.javarang.rep.DBRepository">
+  <select id="getTradeInfoList" resultType="java.util.HashMap">
+    SELECT IFNULL(MAX(CNTS_DTL_SEQ),1) FROM cnts_app_mng_dtl;
+  </select>
+  <select id="getRndKeyYN" resultType="java.util.HashMap">
+    SELECT RND_TOKEN FROM cnts_app_mng_dtl where RND_TOKEN = #{rndToken};
+  </select>
+   <insert id="insertTokken"> 
+    INSERT INTO cnts_app_mng_dtl(CNTS_APP_KEY, RND_TOKEN, TRADE_KEY) VALUES (#{appKey}, #{rndToken}, #{tradeKey}) 
+   </insert>
+
+    <insert id="writeNewContent">
+        INSERT INTO mainblog(subject, contents) VALUES (#{subject}, #{contents})
+    </insert>
+
+
+
+    <select id="getBlogList" resultType="com.javarang.model.MainBlogDTO">
+        SELECT seq, subject, contents, iptdate FROM mainblog order by seq desc;
+    </select>
+</mapper>
+
