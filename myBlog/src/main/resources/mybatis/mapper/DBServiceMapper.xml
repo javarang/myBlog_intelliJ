@@ -20,6 +20,7 @@
 
 
 
+
     <select id="getBlogList" resultType="com.javarang.model.MainBlogDTO">
         SELECT seq, subject, contents, iptdate FROM mainblog order by seq desc;
     </select>
