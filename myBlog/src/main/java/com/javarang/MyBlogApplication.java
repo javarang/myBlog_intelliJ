@@ -18,17 +18,19 @@ public class MyBlogApplication implements CommandLineRunner {
 		pbeEnc.setAlgorithm("PBEWithMD5AndDES");
 		pbeEnc.setPassword("javarang"); //2번 설정의 암호화 키를 입력
 
-		String enc = pbeEnc.encrypt("scretKey"); //암호화 할 내용
-		//qqoRjSEcKeF4/JEQOyzD7Mx6Y3nvD118
-		/*
-			url: ENC(qqoRjSEcKeF4/JEQOyzD7Mx6Y3nvD118)
-			username: ENC(qqoRjSEcKeF4/JEQOyzD7Mx6Y3nvD118)
-			password: ENC(qqoRjSEcKeF4/JEQOyzD7Mx6Y3nvD118)
-		*/
+		String enc = pbeEnc.encrypt("secureKey"); //암호화 할 내용
+		//OwkU83XQDs+R5HH2ZUm7RIl30IzX3pYv
+/*
+			url: ENC(OwkU83XQDs+R5HH2ZUm7RIl30IzX3pYv)
+			username: ENC(OwkU83XQDs+R5HH2ZUm7RIl30IzX3pYv)
+			password: ENC(OwkU83XQDs+R5HH2ZUm7RIl30IzX3pYv)
+*/
 		System.out.println("enc = " + enc); //암호화 한 내용을 출력
 
 		//테스트용 복호화
 		String des = pbeEnc.decrypt(enc);
+
 		System.out.println("des = " + des);
+//		System.out.println("des1 = " + pbeEnc.decrypt("Rs3hbLU+Erc8cLergJza8MFwonviEO3a"));
 	}
 }
